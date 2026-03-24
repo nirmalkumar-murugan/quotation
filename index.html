@@ -58,6 +58,13 @@
   .currency-note { font-size: 12px; color: var(--color-text-secondary); margin-top: 6px; }
   .footer { border-top: 0.5px solid var(--color-border-tertiary); margin-top: 2rem; padding-top: 1.5rem; text-align: center; font-size: 12px; color: var(--color-text-secondary); line-height: 1.8; }
 </style>
+<style>
+  .sections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+  .section-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px 14px; background: var(--color-background-primary); }
+  .section-card-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .section-card-dot { width: 8px; height: 8px; border-radius: 50%; background: #1D9E75; flex-shrink: 0; }
+  .section-card-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; padding-left: 16px; }
+</style>
 </head>
 <body>
     
@@ -88,22 +95,46 @@
     This document explains exactly what you are getting and what it costs — in simple, plain language. No technical jargon. If anything is unclear, please feel free to ask us anytime.
   </div>
 
-  <div class="section">
-    <div class="section-title">What we are building</div>
-    <table class="breakdown-table">
-      <thead><tr><th>Section</th><th>What it does</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Banner</strong></td><td class="desc">The first thing visitors see — your hospital name, tagline, and a "Contact Us" button.</td></tr>
-        <tr><td><strong>About Us</strong></td><td class="desc">A short introduction to your hospital — history, values, and what makes you trusted.</td></tr>
-        <tr><td><strong>Our Services</strong></td><td class="desc">A visual list of all medical departments or specialties you offer.</td></tr>
-        <tr><td><strong>Why Choose Us</strong></td><td class="desc">Key strengths — experienced doctors, modern equipment, availability, etc.</td></tr>
-        <tr><td><strong>Doctors / Team</strong></td><td class="desc">Photos and names of key doctors to build patient trust.</td></tr>
-        <tr><td><strong>Testimonials</strong></td><td class="desc">Patient reviews and success stories displayed attractively.</td></tr>
-        <tr><td><strong>Gallery</strong></td><td class="desc">Photos of your hospital, wards, or facilities (if photos are available).</td></tr>
-        <tr><td><strong>Contact Us</strong></td><td class="desc">Address, phone, email, Google Maps location, and a simple enquiry form.</td></tr>
-      </tbody>
-    </table>
+
+
+<div class="section">
+  <div class="section-title">What we are building</div>
+  <div class="sections-grid">
+    <div class="section-card">
+      <div class="section-card-name"><span class="section-card-dot"></span>Banner</div>
+      <div class="section-card-desc">The first thing visitors see — your hospital name, tagline, and a "Contact Us" button.</div>
+    </div>
+    <div class="section-card">
+      <div class="section-card-name"><span class="section-card-dot"></span>About Us</div>
+      <div class="section-card-desc">A short introduction to your hospital — history, values, and what makes you trusted.</div>
+    </div>
+    <div class="section-card">
+      <div class="section-card-name"><span class="section-card-dot"></span>Our Services</div>
+      <div class="section-card-desc">A visual list of all medical departments or specialties you offer.</div>
+    </div>
+    <div class="section-card">
+      <div class="section-card-name"><span class="section-card-dot"></span>Why Choose Us</div>
+      <div class="section-card-desc">Key strengths — experienced doctors, modern equipment, availability, etc.</div>
+    </div>
+    <div class="section-card">
+      <div class="section-card-name"><span class="section-card-dot"></span>Doctors / Team</div>
+      <div class="section-card-desc">Photos and names of key doctors to build patient trust.</div>
+    </div>
+    <div class="section-card">
+      <div class="section-card-name"><span class="section-card-dot"></span>Testimonials</div>
+      <div class="section-card-desc">Patient reviews and success stories displayed attractively.</div>
+    </div>
+    <div class="section-card">
+      <div class="section-card-name"><span class="section-card-dot"></span>Gallery</div>
+      <div class="section-card-desc">Photos of your hospital, wards, or facilities (if photos are available).</div>
+    </div>
+    <div class="section-card">
+      <div class="section-card-name"><span class="section-card-dot"></span>Contact Us</div>
+      <div class="section-card-desc">Address, phone, email, Google Maps location, and a simple enquiry form.</div>
+    </div>
   </div>
+</div>
+
 
   <div class="section">
     <div class="section-title">Choose your package</div>
