@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotation</title>
+    <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .doc { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem; color: var(--color-text-primary); font-family: var(--font-sans); }
+  .header { border-bottom: 2px solid #1D9E75; padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; }
+  .company-name { font-size: 20px; font-weight: 500; color: #0F6E56; }
+  .tag { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+  .quote-meta { text-align: right; font-size: 13px; color: var(--color-text-secondary); line-height: 1.8; }
+  .quote-meta strong { color: var(--color-text-primary); font-weight: 500; }
+  .title-block { margin-top: 1.5rem; }
+  .quote-title { font-size: 22px; font-weight: 500; }
+  .quote-sub { font-size: 14px; color: var(--color-text-secondary); margin-top: 4px; }
+  .client-box { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 14px; color: var(--color-text-secondary); line-height: 1.8; }
+  .client-box strong { color: var(--color-text-primary); font-weight: 500; display: block; margin-bottom: 4px; font-size: 15px; }
+  .section { margin-bottom: 2rem; }
+  .section-title { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #0F6E56; margin-bottom: 1rem; padding-bottom: 6px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .breakdown-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .breakdown-table th { text-align: left; padding: 8px 12px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .breakdown-table td { padding: 10px 12px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); vertical-align: top; }
+  .breakdown-table tr:last-child td { border-bottom: none; }
+  .breakdown-table td:last-child { text-align: right; font-weight: 500; white-space: nowrap; }
+  .breakdown-table td.desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+  .breakdown-table tr.total-row td { font-weight: 500; font-size: 15px; color: #0F6E56; background: #E1F5EE; }
+  .breakdown-table tr.sub-row td { font-size: 12px; color: var(--color-text-secondary); }
+  .tabs { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .tab-btn { padding: 6px 16px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); background: transparent; cursor: pointer; font-size: 13px; color: var(--color-text-secondary); }
+  .tab-btn.active { background: #1D9E75; border-color: #1D9E75; color: #fff; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+  .plan-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; background: var(--color-background-primary); }
+  .plan-card.featured { border: 2px solid #1D9E75; }
+  .plan-badge { display: inline-block; background: #E1F5EE; color: #0F6E56; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: var(--border-radius-md); margin-bottom: 10px; }
+  .plan-name { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+  .plan-tagline { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 14px; line-height: 1.5; }
+  .plan-price { font-size: 28px; font-weight: 500; color: #0F6E56; margin-bottom: 2px; }
+  .plan-note { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 14px; }
+  .plan-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 12px 0; }
+  .feature-list { list-style: none; padding: 0; }
+  .feature-list li { font-size: 13px; color: var(--color-text-secondary); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+  .check { color: #1D9E75; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .highlight-box { background: #E1F5EE; border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; font-size: 14px; color: #085041; line-height: 1.7; margin-bottom: 1rem; }
+  .timeline-row { display: flex; gap: 1rem; align-items: flex-start; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .timeline-row:last-child { border-bottom: none; }
+  .timeline-week { font-size: 12px; font-weight: 500; color: #0F6E56; min-width: 64px; padding-top: 2px; }
+  .timeline-detail { font-size: 14px; color: var(--color-text-primary); line-height: 1.6; }
+  .timeline-detail span { font-size: 12px; color: var(--color-text-secondary); display: block; }
+  .terms-item { font-size: 14px; color: var(--color-text-secondary); padding: 6px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 10px; line-height: 1.5; }
+  .terms-item:last-child { border-bottom: none; }
+  .terms-num { font-weight: 500; color: var(--color-text-primary); min-width: 20px; }
+  .currency-note { font-size: 12px; color: var(--color-text-secondary); margin-top: 6px; }
+  .footer { border-top: 0.5px solid var(--color-border-tertiary); margin-top: 2rem; padding-top: 1.5rem; text-align: center; font-size: 12px; color: var(--color-text-secondary); line-height: 1.8; }
+</style>
+</head>
+<body>
+    
+
+
+<div class="doc">
+
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="company-name">YourAgency Studio</div>
+        <div class="tag">Web Design & Development</div>
+      </div>
+      <div class="quote-meta">
+        <div><strong>Quotation No:</strong> QT-2025-001</div>
+        <div><strong>Date:</strong> March 2025</div>
+        <div><strong>Valid for:</strong> 30 days</div>
+      </div>
+    </div>
+    <div class="title-block">
+      <div class="quote-title">Website Development Quotation</div>
+      <div class="quote-sub">Prepared for: [Hospital Name] &nbsp;·&nbsp; Single Page Hospital Website</div>
+    </div>
+  </div>
+
+  <div class="client-box">
+    <strong>A note before we begin</strong>
+    This document explains exactly what you are getting and what it costs — in simple, plain language. No technical jargon. If anything is unclear, please feel free to ask us anytime.
+  </div>
+
+  <div class="section">
+    <div class="section-title">What we are building</div>
+    <table class="breakdown-table">
+      <thead><tr><th>Section</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Banner</strong></td><td class="desc">The first thing visitors see — your hospital name, tagline, and a "Book Appointment" button.</td></tr>
+        <tr><td><strong>About Us</strong></td><td class="desc">A short introduction to your hospital — history, values, and what makes you trusted.</td></tr>
+        <tr><td><strong>Our Services</strong></td><td class="desc">A visual list of all medical departments or specialties you offer.</td></tr>
+        <tr><td><strong>Why Choose Us</strong></td><td class="desc">Key strengths — experienced doctors, modern equipment, 24/7 availability, etc.</td></tr>
+        <tr><td><strong>Doctors / Team</strong></td><td class="desc">Photos and names of key doctors to build patient trust.</td></tr>
+        <tr><td><strong>Testimonials</strong></td><td class="desc">Patient reviews and success stories displayed attractively.</td></tr>
+        <tr><td><strong>Gallery</strong></td><td class="desc">Photos of your hospital, wards, or facilities (if photos are available).</td></tr>
+        <tr><td><strong>Contact Us</strong></td><td class="desc">Address, phone, email, Google Maps location, and a simple enquiry form.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Choose your package</div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('basic', event)">Option A — Simple Website</button>
+      <button class="tab-btn" onclick="showTab('cms', event)">Option B — With Content Management</button>
+    </div>
+
+    <div id="basic" class="tab-content active">
+      <div class="plan-grid">
+        <div class="plan-card">
+          <div class="plan-name">Without Domain</div>
+          <div class="plan-tagline">Website files handed over to you. You can host it anywhere you choose.</div>
+          <div class="plan-price">₹18,000</div>
+          <div class="plan-note">One-time payment. No yearly charges from us.</div>
+          <hr class="plan-divider">
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Complete single-page website design</li>
+            <li><span class="check">✓</span> Works on mobile, tablet & desktop</li>
+            <li><span class="check">✓</span> All 8 sections listed above</li>
+            <li><span class="check">✓</span> Fast loading speed</li>
+            <li><span class="check">✓</span> Contact / enquiry form</li>
+            <li><span class="check">✓</span> Google Maps integration</li>
+            <li><span class="check">✓</span> Social media links</li>
+            <li><span class="check">✓</span> Ready-to-upload files delivered to you</li>
+          </ul>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-badge">Recommended</div>
+          <div class="plan-name">With Domain & Hosting</div>
+          <div class="plan-tagline">We register your domain name and put the website online for you.</div>
+          <div class="plan-price">₹22,500</div>
+          <div class="plan-note">Includes 1 year domain + hosting. Renewal ~₹3,500/yr after.</div>
+          <hr class="plan-divider">
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Everything in "Without Domain"</li>
+            <li><span class="check">✓</span> Domain name (e.g. yourhospital.com)</li>
+            <li><span class="check">✓</span> 1 year website hosting</li>
+            <li><span class="check">✓</span> Professional email (info@yourhospital.com)</li>
+            <li><span class="check">✓</span> SSL security certificate (padlock in browser)</li>
+            <li><span class="check">✓</span> Website live within 1–2 weeks</li>
+            <li><span class="check">✓</span> 30-day free support after launch</li>
+          </ul>
+        </div>
+      </div>
+      <table class="breakdown-table">
+        <thead><tr><th>What you are paying for</th><th>Simple explanation</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Website design & development</td><td class="desc">Building all sections, layout, design, and animations</td><td>₹14,000</td></tr>
+          <tr><td>Content integration</td><td class="desc">Adding your text, photos, and services list</td><td>₹2,500</td></tr>
+          <tr><td>Contact form & map setup</td><td class="desc">Working enquiry form + Google Maps</td><td>₹1,500</td></tr>
+          <tr class="sub-row"><td colspan="2">Subtotal — files only, no domain</td><td>₹18,000</td></tr>
+          <tr><td>Domain name (1 year)</td><td class="desc">Your website address — e.g. yourhospital.com</td><td>₹1,000</td></tr>
+          <tr><td>Web hosting (1 year)</td><td class="desc">The server space where your website lives online</td><td>₹2,500</td></tr>
+          <tr><td>SSL certificate</td><td class="desc">Security certificate — the padlock shown in the browser</td><td>₹1,000</td></tr>
+          <tr class="total-row"><td colspan="2">Total — with Domain & Hosting (1st year)</td><td>₹22,500</td></tr>
+        </tbody>
+      </table>
+      <div class="currency-note">* From Year 2 onwards: domain + hosting renewal approx. ₹3,000–₹3,500/year</div>
+    </div>
+
+    <div id="cms" class="tab-content">
+      <div class="highlight-box">
+        <strong>What is a CMS / Admin Panel?</strong><br>
+        It is a simple dashboard your staff can log into to update the website themselves — add a new doctor, change a phone number, upload a photo — without calling us every time. Think of it like a control room for your website.
+      </div>
+      <div class="plan-grid">
+        <div class="plan-card">
+          <div class="plan-name">CMS — Without Domain</div>
+          <div class="plan-tagline">Website + admin panel delivered. You arrange your own server.</div>
+          <div class="plan-price">₹42,000</div>
+          <div class="plan-note">One-time development cost. Server charges are separate.</div>
+          <hr class="plan-divider">
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Everything in Option A</li>
+            <li><span class="check">✓</span> Secure admin login dashboard</li>
+            <li><span class="check">✓</span> Update doctors, services, gallery yourself</li>
+            <li><span class="check">✓</span> View & manage enquiry submissions</li>
+            <li><span class="check">✓</span> Staff training session included</li>
+          </ul>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-badge">Recommended</div>
+          <div class="plan-name">CMS — With Domain & Hosting</div>
+          <div class="plan-tagline">Complete package — website, admin panel, domain, server, and support.</div>
+          <div class="plan-price">₹52,000</div>
+          <div class="plan-note">Includes 1 year of everything. Server renewal ~₹8,000/yr after.</div>
+          <hr class="plan-divider">
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Everything in CMS without domain</li>
+            <li><span class="check">✓</span> Domain name registration</li>
+            <li><span class="check">✓</span> Cloud server hosting (required for admin panel)</li>
+            <li><span class="check">✓</span> Professional email setup</li>
+            <li><span class="check">✓</span> SSL security certificate</li>
+            <li><span class="check">✓</span> 60-day free support after launch</li>
+          </ul>
+        </div>
+      </div>
+      <table class="breakdown-table">
+        <thead><tr><th>What you are paying for</th><th>Simple explanation</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Website design & development</td><td class="desc">All sections, design, animations, mobile-friendly layout</td><td>₹14,000</td></tr>
+          <tr><td>Admin panel development</td><td class="desc">Secure login dashboard to edit website content yourself</td><td>₹18,000</td></tr>
+          <tr><td>Database setup</td><td class="desc">Storage for doctors, enquiries, and other website data</td><td>₹4,000</td></tr>
+          <tr><td>Content integration & training</td><td class="desc">Adding your content + teaching your team to use the panel</td><td>₹3,500</td></tr>
+          <tr><td>Testing & launch</td><td class="desc">Full testing on all devices before going live</td><td>₹2,500</td></tr>
+          <tr class="sub-row"><td colspan="2">Subtotal — files only, no domain</td><td>₹42,000</td></tr>
+          <tr><td>Domain name (1 year)</td><td class="desc">Your website address</td><td>₹1,000</td></tr>
+          <tr><td>VPS cloud hosting (1 year)</td><td class="desc">A dedicated server — needed to run the admin panel</td><td>₹7,500</td></tr>
+          <tr><td>SSL certificate</td><td class="desc">Security certificate</td><td>₹1,000</td></tr>
+          <tr><td>Email setup</td><td class="desc">Professional email addresses for your hospital</td><td>₹500</td></tr>
+          <tr class="total-row"><td colspan="2">Total — with Domain & Hosting (1st year)</td><td>₹52,000</td></tr>
+        </tbody>
+      </table>
+      <div class="currency-note">* From Year 2 onwards: server + domain renewal approx. ₹8,000–₹10,000/year</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Delivery timeline — 1 to 2 weeks</div>
+    <div class="timeline-row">
+      <div class="timeline-week">Day 1–2</div>
+      <div class="timeline-detail">Kickoff & Content Collection<span>We gather your logo, photos, text, and services list. Design direction is confirmed.</span></div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-week">Day 3–7</div>
+      <div class="timeline-detail">Design & Development<span>Full website is built with all sections. Content is integrated into the design.</span></div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-week">Day 8–10</div>
+      <div class="timeline-detail">Review & Revisions<span>We share a preview link. You check it and request any changes (2 rounds included).</span></div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-week">Day 11–14</div>
+      <div class="timeline-detail">Launch<span>Final sign-off, domain setup, and your website goes live.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Terms & conditions</div>
+    <div class="terms-item"><span class="terms-num">1.</span><span>This quotation is valid for 30 days from the date above.</span></div>
+    <div class="terms-item"><span class="terms-num">2.</span><span>You are responsible for providing your logo, photos, and written content by Day 1–2. Delays in content will delay delivery.</span></div>
+    <div class="terms-item"><span class="terms-num">3.</span><span>Two rounds of design revisions are included. Additional changes will be quoted separately.</span></div>
+    <div class="terms-item"><span class="terms-num">4.</span><span>Domain and hosting charges are renewed yearly. We will remind you 30 days before renewal is due.</span></div>
+    <div class="terms-item"><span class="terms-num">5.</span><span>Free support is included for 30 days after launch (60 days for CMS option). After that, support is available as a separate package.</span></div>
+    <div class="terms-item"><span class="terms-num">6.</span><span>All files and source code belong to you once the project is completed and delivered.</span></div>
+  </div>
+
+  <div class="footer">
+    <div>For questions, call or WhatsApp: <strong>[Your Phone]</strong> &nbsp;·&nbsp; Email: <strong>[Your Email]</strong></div>
+    <div style="margin-top: 6px;">Thank you for considering us. We look forward to building your hospital's online presence.</div>
+    <div style="margin-top: 10px; font-size: 11px;">YourAgency Studio &nbsp;·&nbsp; [Your Address] &nbsp;·&nbsp; GST: [Your GST No]</div>
+  </div>
+
+</div>
+
+<script>
+function showTab(id, event) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
