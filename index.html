@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quotation</title>
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  .doc { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem; color: var(--color-text-primary); font-family: var(--font-sans); }
+  .doc { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem; color: var(--color-text-primary); font-family: 'Poppins', sans-serif; }
   .header { border-bottom: 2px solid #1D9E75; padding-bottom: 1.5rem; margin-bottom: 2rem; }
   .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; }
   .company-name { font-size: 20px; font-weight: 500; color: #0F6E56; }
@@ -67,18 +68,18 @@
   <div class="header">
     <div class="header-top">
       <div>
-        <div class="company-name">YourAgency Studio</div>
-        <div class="tag">Web Design & Development</div>
+        <!-- <div class="company-name">YourAgency Studio</div>
+        <div class="tag">Web Design & Development</div> -->
       </div>
       <div class="quote-meta">
-        <div><strong>Quotation No:</strong> QT-2025-001</div>
-        <div><strong>Date:</strong> March 2025</div>
+        <div><strong>Quotation No:</strong> QT-2026-012</div>
+        <div><strong>Date:</strong> March 2026</div>
         <div><strong>Valid for:</strong> 30 days</div>
       </div>
     </div>
     <div class="title-block">
       <div class="quote-title">Website Development Quotation</div>
-      <div class="quote-sub">Prepared for: [Hospital Name] &nbsp;·&nbsp; Single Page Hospital Website</div>
+      <div class="quote-sub">Prepared for: Leelarani &nbsp;·&nbsp; Single Page Hospital Website</div>
     </div>
   </div>
 
@@ -92,10 +93,10 @@
     <table class="breakdown-table">
       <thead><tr><th>Section</th><th>What it does</th></tr></thead>
       <tbody>
-        <tr><td><strong>Banner</strong></td><td class="desc">The first thing visitors see — your hospital name, tagline, and a "Book Appointment" button.</td></tr>
+        <tr><td><strong>Banner</strong></td><td class="desc">The first thing visitors see — your hospital name, tagline, and a "Contact Us" button.</td></tr>
         <tr><td><strong>About Us</strong></td><td class="desc">A short introduction to your hospital — history, values, and what makes you trusted.</td></tr>
         <tr><td><strong>Our Services</strong></td><td class="desc">A visual list of all medical departments or specialties you offer.</td></tr>
-        <tr><td><strong>Why Choose Us</strong></td><td class="desc">Key strengths — experienced doctors, modern equipment, 24/7 availability, etc.</td></tr>
+        <tr><td><strong>Why Choose Us</strong></td><td class="desc">Key strengths — experienced doctors, modern equipment, availability, etc.</td></tr>
         <tr><td><strong>Doctors / Team</strong></td><td class="desc">Photos and names of key doctors to build patient trust.</td></tr>
         <tr><td><strong>Testimonials</strong></td><td class="desc">Patient reviews and success stories displayed attractively.</td></tr>
         <tr><td><strong>Gallery</strong></td><td class="desc">Photos of your hospital, wards, or facilities (if photos are available).</td></tr>
@@ -113,10 +114,11 @@
 
     <div id="basic" class="tab-content active">
       <div class="plan-grid">
-        <div class="plan-card">
+        <div class="plan-card featured">
+          <div class="plan-badge">Recommended</div>
           <div class="plan-name">Without Domain</div>
-          <div class="plan-tagline">Website files handed over to you. You can host it anywhere you choose.</div>
-          <div class="plan-price">₹18,000</div>
+          <div class="plan-tagline">Website files will be handed over to you and deployed online at no extra cost using free platforms like Vercel or Netlify. No domain or hosting charges.</div>
+          <div class="plan-price">₹6,000</div>
           <div class="plan-note">One-time payment. No yearly charges from us.</div>
           <hr class="plan-divider">
           <ul class="feature-list">
@@ -124,18 +126,16 @@
             <li><span class="check">✓</span> Works on mobile, tablet & desktop</li>
             <li><span class="check">✓</span> All 8 sections listed above</li>
             <li><span class="check">✓</span> Fast loading speed</li>
-            <li><span class="check">✓</span> Contact / enquiry form</li>
             <li><span class="check">✓</span> Google Maps integration</li>
             <li><span class="check">✓</span> Social media links</li>
             <li><span class="check">✓</span> Ready-to-upload files delivered to you</li>
           </ul>
         </div>
-        <div class="plan-card featured">
-          <div class="plan-badge">Recommended</div>
+        <div class="plan-card ">
           <div class="plan-name">With Domain & Hosting</div>
           <div class="plan-tagline">We register your domain name and put the website online for you.</div>
-          <div class="plan-price">₹22,500</div>
-          <div class="plan-note">Includes 1 year domain + hosting. Renewal ~₹3,500/yr after.</div>
+          <div class="plan-price">₹10,000</div>
+          <div class="plan-note">Includes 1 year domain + hosting. Renewal approx ₹2,500/yr (based on your plan) after.</div>
           <hr class="plan-divider">
           <ul class="feature-list">
             <li><span class="check">✓</span> Everything in "Without Domain"</li>
@@ -151,17 +151,16 @@
       <table class="breakdown-table">
         <thead><tr><th>What you are paying for</th><th>Simple explanation</th><th>Cost</th></tr></thead>
         <tbody>
-          <tr><td>Website design & development</td><td class="desc">Building all sections, layout, design, and animations</td><td>₹14,000</td></tr>
-          <tr><td>Content integration</td><td class="desc">Adding your text, photos, and services list</td><td>₹2,500</td></tr>
-          <tr><td>Contact form & map setup</td><td class="desc">Working enquiry form + Google Maps</td><td>₹1,500</td></tr>
-          <tr class="sub-row"><td colspan="2">Subtotal — files only, no domain</td><td>₹18,000</td></tr>
+          <tr><td>Website design & development</td><td class="desc">Building all sections, layout, design, and animations</td><td>₹4,500</td></tr>
+          <tr><td>Content integration</td><td class="desc">Adding your text, photos, and services list</td><td>₹1,500</td></tr>
+          <tr class="sub-row"><td colspan="2">Subtotal — files only, no domain</td><td>₹6,000</td></tr>
           <tr><td>Domain name (1 year)</td><td class="desc">Your website address — e.g. yourhospital.com</td><td>₹1,000</td></tr>
-          <tr><td>Web hosting (1 year)</td><td class="desc">The server space where your website lives online</td><td>₹2,500</td></tr>
+          <tr><td>Web hosting (1 year)</td><td class="desc">The server space where your website lives online</td><td>₹2,000</td></tr>
           <tr><td>SSL certificate</td><td class="desc">Security certificate — the padlock shown in the browser</td><td>₹1,000</td></tr>
-          <tr class="total-row"><td colspan="2">Total — with Domain & Hosting (1st year)</td><td>₹22,500</td></tr>
+          <tr class="total-row"><td colspan="2">Total — with Domain & Hosting (1st year)</td><td>₹10,000</td></tr>
         </tbody>
       </table>
-      <div class="currency-note">* From Year 2 onwards: domain + hosting renewal approx. ₹3,000–₹3,500/year</div>
+      <div class="currency-note">* From Year 2 onwards: domain + hosting renewal approx. ₹1,000–₹2,500/year</div>
     </div>
 
     <div id="cms" class="tab-content">
@@ -170,9 +169,9 @@
         It is a simple dashboard your staff can log into to update the website themselves — add a new doctor, change a phone number, upload a photo — without calling us every time. Think of it like a control room for your website.
       </div>
       <div class="plan-grid">
-        <div class="plan-card">
+        <!-- <div class="plan-card">
           <div class="plan-name">CMS — Without Domain</div>
-          <div class="plan-tagline">Website + admin panel delivered. You arrange your own server.</div>
+          <div class="plan-tagline">Website + admin panel delivered.</div>
           <div class="plan-price">₹42,000</div>
           <div class="plan-note">One-time development cost. Server charges are separate.</div>
           <hr class="plan-divider">
@@ -183,13 +182,13 @@
             <li><span class="check">✓</span> View & manage enquiry submissions</li>
             <li><span class="check">✓</span> Staff training session included</li>
           </ul>
-        </div>
+        </div> -->
         <div class="plan-card featured">
           <div class="plan-badge">Recommended</div>
           <div class="plan-name">CMS — With Domain & Hosting</div>
           <div class="plan-tagline">Complete package — website, admin panel, domain, server, and support.</div>
-          <div class="plan-price">₹52,000</div>
-          <div class="plan-note">Includes 1 year of everything. Server renewal ~₹8,000/yr after.</div>
+          <div class="plan-price">₹16,000</div>
+          <div class="plan-note">Includes 1 year of everything. Server approx ₹2,500/yr (based on your plan) after.</div>
           <hr class="plan-divider">
           <ul class="feature-list">
             <li><span class="check">✓</span> Everything in CMS without domain</li>
@@ -204,24 +203,27 @@
       <table class="breakdown-table">
         <thead><tr><th>What you are paying for</th><th>Simple explanation</th><th>Cost</th></tr></thead>
         <tbody>
-          <tr><td>Website design & development</td><td class="desc">All sections, design, animations, mobile-friendly layout</td><td>₹14,000</td></tr>
-          <tr><td>Admin panel development</td><td class="desc">Secure login dashboard to edit website content yourself</td><td>₹18,000</td></tr>
-          <tr><td>Database setup</td><td class="desc">Storage for doctors, enquiries, and other website data</td><td>₹4,000</td></tr>
-          <tr><td>Content integration & training</td><td class="desc">Adding your content + teaching your team to use the panel</td><td>₹3,500</td></tr>
-          <tr><td>Testing & launch</td><td class="desc">Full testing on all devices before going live</td><td>₹2,500</td></tr>
-          <tr class="sub-row"><td colspan="2">Subtotal — files only, no domain</td><td>₹42,000</td></tr>
+          <tr><td>Website design & development</td><td class="desc">All sections, design, animations, mobile-friendly layout</td><td>₹4,500</td></tr>
+          <tr><td>Admin panel development</td><td class="desc">Secure login dashboard to edit website content yourself</td><td>₹4,500</td></tr>
+          <tr><td>Database setup</td><td class="desc">Storage for doctors, enquiries, and other website data</td><td>₹1,000</td></tr>
+          <tr><td>Content integration & training</td><td class="desc">Adding your content + teaching your team to use the panel</td><td>₹1,000</td></tr>
+          <tr><td>Testing & launch</td><td class="desc">Full testing on all devices before going live</td><td>₹1,000</td></tr>
           <tr><td>Domain name (1 year)</td><td class="desc">Your website address</td><td>₹1,000</td></tr>
-          <tr><td>VPS cloud hosting (1 year)</td><td class="desc">A dedicated server — needed to run the admin panel</td><td>₹7,500</td></tr>
+          <tr><td>cloud hosting (1 year)</td><td class="desc">A dedicated server — needed to run the admin panel</td><td>₹2,000</td></tr>
           <tr><td>SSL certificate</td><td class="desc">Security certificate</td><td>₹1,000</td></tr>
           <tr><td>Email setup</td><td class="desc">Professional email addresses for your hospital</td><td>₹500</td></tr>
-          <tr class="total-row"><td colspan="2">Total — with Domain & Hosting (1st year)</td><td>₹52,000</td></tr>
+          <tr class="total-row"><td colspan="2">Total — with Domain & Hosting (1st year)</td><td>₹16,000</td></tr>
         </tbody>
       </table>
-      <div class="currency-note">* From Year 2 onwards: server + domain renewal approx. ₹8,000–₹10,000/year</div>
+      <div class="currency-note">* From Year 2 onwards: server + domain renewal approx. ₹1,000–₹2,500/year</div>
     </div>
   </div>
 
   <div class="section">
+     <div class="highlight-box">
+        <strong>Please Note:</strong><br>
+       The below timeline is an estimate for a standard requirement. Delivery time may vary depending on the complexity of your project and how quickly content is provided.
+      </div>
     <div class="section-title">Delivery timeline — 1 to 2 weeks</div>
     <div class="timeline-row">
       <div class="timeline-week">Day 1–2</div>
@@ -245,16 +247,15 @@
     <div class="section-title">Terms & conditions</div>
     <div class="terms-item"><span class="terms-num">1.</span><span>This quotation is valid for 30 days from the date above.</span></div>
     <div class="terms-item"><span class="terms-num">2.</span><span>You are responsible for providing your logo, photos, and written content by Day 1–2. Delays in content will delay delivery.</span></div>
-    <div class="terms-item"><span class="terms-num">3.</span><span>Two rounds of design revisions are included. Additional changes will be quoted separately.</span></div>
-    <div class="terms-item"><span class="terms-num">4.</span><span>Domain and hosting charges are renewed yearly. We will remind you 30 days before renewal is due.</span></div>
-    <div class="terms-item"><span class="terms-num">5.</span><span>Free support is included for 30 days after launch (60 days for CMS option). After that, support is available as a separate package.</span></div>
-    <div class="terms-item"><span class="terms-num">6.</span><span>All files and source code belong to you once the project is completed and delivered.</span></div>
+    <div class="terms-item"><span class="terms-num">3.</span><span>Domain and hosting charges are renewed yearly. We will remind you 30 days before renewal is due.</span></div>
+    <div class="terms-item"><span class="terms-num">4.</span><span>Free support is included for 30 days after launch (60 days for CMS option).</span></div>
+    <div class="terms-item"><span class="terms-num">5.</span><span>All files and source code belong to you once the project is completed and delivered.</span></div>
   </div>
 
   <div class="footer">
-    <div>For questions, call or WhatsApp: <strong>[Your Phone]</strong> &nbsp;·&nbsp; Email: <strong>[Your Email]</strong></div>
+    <div>For questions, call: <strong><a href="tel:+919384158468">+91 9384158468</a></strong> or WhatsApp: <strong><a href="https://wa.me/919384158468">+91 9384158468</a></strong> &nbsp;·&nbsp; Email: <strong><a href="mailto:nirmalkumarm46@gmail.com">nirmalkumarm46@gmail.com</a></strong></div>
     <div style="margin-top: 6px;">Thank you for considering us. We look forward to building your hospital's online presence.</div>
-    <div style="margin-top: 10px; font-size: 11px;">YourAgency Studio &nbsp;·&nbsp; [Your Address] &nbsp;·&nbsp; GST: [Your GST No]</div>
+    <!-- <div style="margin-top: 10px; font-size: 11px;">YourAgency Studio &nbsp;·&nbsp; [Your Address] &nbsp;·&nbsp; GST: [Your GST No]</div> -->
   </div>
 
 </div>
